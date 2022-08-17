@@ -1,0 +1,1 @@
+Atividades relativas a cadeira de Estrutura de Dados-UFC - Professor: Francicleber.
