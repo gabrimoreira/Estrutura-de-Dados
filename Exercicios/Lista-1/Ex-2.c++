@@ -5,15 +5,12 @@ using namespace std;
 // Entrelaçamento livre (Desconsiderando a posição relativa).
 
 void separa(int v[], int tam){
-    int cont;
-    if(tam%2 == 0){
-        cont = tam/2 + 1;
-    }
-    else{ cont = tam/2 + 2;}
-    for(int i = 1; i < tam/2; i+=2, cont+=2){
-            int aux = v[cont];
-            v[cont] = v[i];
-            v[i] = aux;
+    for(int i = 1, j = tam - 2; i < tam/2; i+=2, j-=2){
+        if(i%2 != 0){
+            int aux = v[i];
+            v[i] = v[j];
+            v[j] = aux;
+        }
     }
 }
 
