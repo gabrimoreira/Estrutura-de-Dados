@@ -1,0 +1,97 @@
+Questões para analisar a complexidade de um algoritmo
+
+Parte 1
+
+Questão 1 (Laço simples). Considere o seguinte algoritmo:
+l s ( )
+1 aux = 1               1
+2 i ← 0                 1
+3 enquanto i < n faça   n + 1
+4 aux = aux + i         n
+5 i ← i + 1             n
+6 r e t o r n e aux     n
+
+Total = 4n + 3 || Complexidade O(n)
+
+Conte quantas vezes cada uma das linhas é executada.
+
+Questão 2 (Trocando listas de lugar). Imagine que temos duas listas, L e V trocar os elementos
+de uma lista para outra, isto é, os valores da lista L vão para a lista V e vice-versa:
+
+t r o c a _ l i s t a s ( )
+i ← 0                   1
+enquanto i < n faça     n+1
+aux = L [ i ]           n
+L [ i ] = V[ i ]        n
+V[ i ] = aux            n
+i ← i + 1               n
+
+Total = 5n + 2 || Complexidade O(n)
+
+Calcule o número de execuções de instruções (linhas) desse algoritmo.
+
+Parte 2
+
+Questão 3 (Múltiplos de 3). Considere uma lista de inteiros L de tamano n
+
+Considere o seguinte algoritmo que percorre a lista e sempre que encontra um número múltiplo
+de 3, divide o número por 3 e eleva ao quadrado.
+m u l t i p l o _ t r e s ( )
+1 i ← 0                         1
+2 enquanto i < n faça           n+1
+3 se 3 | L [ i ] então          n
+4 L [ i ] = L [ i ] ∗ 3         d
+5 L [ i ] = L [ i ] ∗ L [ i ]   d
+6 i ← i + 1                     n
+(Considere que o tamanho da lista n seja um múltiplo de 3.)
+a) Quantas vezes a linha 6 será executada?
+|| n vezes.
+
+b) Se a quantidade de elementos divisíveis por 3 for d, quantas vezes a linha 4 será executada?
+|| d
+
+c) Se a quantidade de elementos divisíveis por 3 for d, qual o total de execuções de instruções
+do algoritmo?
+|| 3n + 2d + 2.
+
+d) No melhor e no pior caso, quais os números de execuções de instruções realizadas?
+|| Pior caso: todos os números são divisiveis por 3. --> 5n + 2.
+|| Melhor caso: Nenhum número é divisível por 3. --> 3n + 2.
+
+Questão 4 (Triplicidade). Considere uma lista de inteiros L de tamano n
+
+L: 16 19 41 8 42 39 33 22 29 48
+
+Considere o seguinte algoritmo que percorre a lista e realiza operações sobre os elementos da
+lista de acordo com o resto da divisão do elemento por 3.
+
+t r i p l i c i d a d e ( )
+1 i ← 0                                 1
+2 enquanto i < n faça                   n+1
+3 se 3 % L [ i ] = 0 então              n
+4 L [ i ] = L [ i ] ∗ 3                 x0
+5 L [ i ] = L [ i ] ∗ L [ i ]           x0
+6 senão                                 
+7 se 3 % L [ i ] = 1 então              n-x0
+8 i m p r i m i r ( ’ Uhuuuuu ! ’ )     x1
+9 senão
+10 se 3 % L [ i ] = 2 então             n-x0-x1
+11 L [ i ] = i ∗ L [ i ]                x2
+12 L [ i ] = L [ i ] / 3                x2
+13 L [ i ] = L [ i ] − 1                x2
+14 i ← i + 1                            n
+
+Suponha que a quantidade de elementos divisíveis por 3 é x0, os que deixam resto 1 na divisão
+por 3 é x1, e a quantidade de elementos que deixam resto 2 na divisão por 3 é x2 (consequentemente, x0 + x1 + x2 = n).
+a) Quantas vezes a linha 2 será executada?
+|| (n + 1) vezes.
+
+b) Quantas vezes a linha 7 será executada?
+|| (n-x0) vezes.
+
+c) Qual o total de execuções de instruções do algoritmo?
+|| (5n + 3x2 + 2) vezes
+
+d) No melhor e no pior caso, quais os números de execuções de instruções realizadas?
+|| Pior caso: Todos os restos são 2. --> 8n + 2.
+|| Melhor caso: Todos os números são 3. --> 4n + 2.
